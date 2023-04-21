@@ -18,12 +18,13 @@ void loop() {
   // put your main code here, to run repeatedly:
   brig = DMXSerial.read(1);
   del = (255-DMXSerial.read(2))*1.5;
-  
-  analogWrite(3,brig);
+  if(del > 380){
+    analogWrite(3,brig);
   analogWrite(5,brig);
   analogWrite(6,brig);
   delay(40);
-  if(del > 1){
+  }
+  if(del > 2){
     digitalWrite(3,LOW);
     digitalWrite(5,LOW);
     digitalWrite(6,LOW);
