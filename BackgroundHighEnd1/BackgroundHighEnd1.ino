@@ -1,7 +1,11 @@
 
-//9 Blue
-//10 Red
+//9 Red
+//10 Blue
 //11 Green
+
+//11 Red
+//10 Green
+// 9 BLue
 
 #include <DMXSerial.h>
 int brightness;
@@ -20,9 +24,9 @@ DMXSerial.init(DMXReceiver);
 }
 
 void loop() {
-  brightness = DMXSerial.read(6);
-  analogWrite(10,map(DMXSerial.read(3)*brightness, 0,65025, 0,120));
-  analogWrite(11,map(DMXSerial.read(4)*brightness, 0,65025, 0,255));
-  analogWrite(9,map(DMXSerial.read(5)*brightness, 0,65025, 0,255));
+  brightness = DMXSerial.read(10);
+  analogWrite(11,map(DMXSerial.read(7)*brightness, 0,65025, 0,120));
+  analogWrite(10,map(DMXSerial.read(8)*brightness, 0,65025, 0,255));
+  analogWrite(9,map(DMXSerial.read(9)*brightness, 0,65025, 0,255));
 
 }
